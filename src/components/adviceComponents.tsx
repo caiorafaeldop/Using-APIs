@@ -1,41 +1,29 @@
 import React, { useEffect, useState } from "react";
-
-interface slip {
-  id: number;
-  advice: string;
-} // a struct do advice
+import { fetchAdvice, Slip } from "../api/adviceApi";
+import Loading from "./Loading";
 
 const AdviceComponent: React.FC = () => {
-  const [advice, setAdvice] = useState<slip | null>(null); //a constante do advice que pode ser um slip ou um null caso dê erro
-  const URL = "https://api.adviceslip.com/advice";
-
-  const fetchAdvice = async () => {
-    try {
-      const response = await fetch(URL); //
-      if (!response.ok) {
-        throw new Error("Network response was not ok"); //
-      }
-      const data = await response.json(); //
-      console.log(data);
-      setAdvice(data.slip); //
-    } catch (error) {
-      console.error("There was a problem with the fetch operation:", error); //
-    }
-  };
+  const [advice, setAdvice] = useState<Slip | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchAdvice();
+    const getAdvice = async () => {
+      try {
+        const adviceData = await fetchAdvice();
+        setAdvice(adviceData);
+      } catch (err) {
+        setError("Failed to fetch advice");
+      }
+    };
+
+    getAdvice();
   }, []);
 
-  return (
-    <div>
-      {advice ? (
-        <p>{advice.advice}</p> // Corrigido para mostrar o conselho
-      ) : (
-        <p>Loading advice...</p>
-      )}
-    </div>
-  );
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  return <div>{advice ? <p>{advice.advice}</p> : <Loading />}</div>;
 };
 
 export default AdviceComponent;
