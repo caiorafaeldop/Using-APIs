@@ -11,7 +11,7 @@ const LoginComponent: React.FC = () => {
     e.preventDefault();
 
     // Simulação de validação de login
-    if (email === "caio@c.com" && password === "123") {
+    if (email === "c@c.com" && password === "123") {
       localStorage.setItem("isAuthenticated", "true");
       navigate("/success");
     } else {
@@ -21,25 +21,27 @@ const LoginComponent: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleLogin} className="form-container">
-      <div className="form-group">
-        <label>Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div className="form-group">
-        <label>Senha</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+    <>
+      <form onSubmit={handleLogin} className="form-container">
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Senha</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </>
   );
 };
 

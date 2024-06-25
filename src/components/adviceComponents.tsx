@@ -23,7 +23,7 @@ const AdviceComponent: React.FC = () => {
     return <div>{error}</div>;
   }
 
-  return <div>{advice ? <p>{advice.advice}</p> : <Loading />}</div>;
+  return <div>{advice ? <h2>{advice.advice}</h2> : <Loading />}</div>;
 };
 
 export default AdviceComponent;

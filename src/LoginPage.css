@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 210vh;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+  height: 100%; /* Ocupa toda a altura do contêiner */
+}
+
+.left-band,
+.right-band {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.left-band {
+  background-color: #c6baaa; /* Apenas para visualização */
+}
+.left-band img {
+  margin: 0;
+  bottom: 0;
+  border-radius: 33px;
+  position: relative;
+}
+
+.right-band {
+  background-color: #ffffff; /* Apenas para visualização */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

@@ -2,7 +2,8 @@ import React from "react";
 import AdviceComponent from "./components/adviceComponents";
 import DogComponent from "./components/dogsComponent";
 import { useNavigate } from "react-router-dom";
-import "./App.css";
+import "./SuccessPage.css";
+import NavBar from "./components/NavBar/NavBar";
 
 const SuccessPage: React.FC = () => {
   const navigate = useNavigate();
@@ -11,7 +12,8 @@ const SuccessPage: React.FC = () => {
     navigate("/");
   };
   return (
-    <div>
+    <div className="success">
+      <NavBar />
       <AdviceComponent />
       <DogComponent />
       <button onClick={handleNavigate}>Desconectar</button>

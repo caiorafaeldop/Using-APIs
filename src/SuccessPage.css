@@ -1,0 +1,24 @@
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%; /* Garante que a div ocupe toda a largura da tela */
+  height: 100vh; /* Faz a div ocupar toda a altura da tela */
+}
+
+.success .success-image {
+  width: 280px; /* Define a largura da imagem */
+  height: 280px; /* Define a altura da imagem */
+  border-radius: 50%;
+  display: block;
+  margin: 20px auto; /* Centraliza a imagem */
+}
+
+.success h2 {
+  color: rgb(172, 118, 32);
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}

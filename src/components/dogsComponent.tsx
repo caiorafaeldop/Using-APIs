@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchDogImage, DogImage } from "../api/dogApi";
-import Loading from "./Loading";
+// import Loading from "./Loading";
 
 const DogsComponent: React.FC = () => {
   const [dogImage, setDogImage] = useState<DogImage | null>(null);
@@ -26,11 +26,9 @@ const DogsComponent: React.FC = () => {
   return (
     <div>
       {dogImage ? (
-        <img src={dogImage.url} alt="Random Dog" className="dog-image" />
+        <img className="success-image" src={dogImage.url} alt="Random Dog" />
       ) : (
-        <p>
-          <Loading />
-        </p>
+        <p>{/* <Loading /> */}</p>
       )}
     </div>
   );
